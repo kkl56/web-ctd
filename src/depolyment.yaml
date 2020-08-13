@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: jks-flask-deploy
+  name: jks-flask-deploy
+  namespace: test-07
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: jks-flask-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: jks-flask-deploy
+      namespace: test-07
+    spec:
+      containers:
+      - image: 192.168.2.190:5000/admin/python-test-0813:v1
+        name: jks-flask-deploy
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
